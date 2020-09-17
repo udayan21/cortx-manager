@@ -430,6 +430,7 @@ SUPPORT_BUNDLE_CONF = "{}/0-support_bundle.conf".format(RSYSLOG_DIR)
 #cron dire
 CRON_DIR="/etc/cron.daily"
 SOURCE_CRON_PATH="{0}/conf{1}/es_logrotate.cron".format(CSM_PATH, CRON_DIR)
+SOURCE_CRON_PATH_VIRTUAL="{0}/conf{1}/es_logrotate-virtual.cron".format(CSM_PATH, CRON_DIR)
 DEST_CRON_PATH="{}/es_logrotate.cron".format(CRON_DIR)
 
 #logrotate
@@ -440,8 +441,14 @@ STATUS_CREATED = 201
 STATUS_CONFLICT = 409
 
 SOURCE_LOGROTATE_PATH = "{0}/conf{1}/csm/csm_agent_log.conf".format(CSM_PATH, LOGROTATE_DIR)
+SOURCE_LOGROTATE_PATH_VIRTUAL = "{0}/conf{1}/csm/csm_agent_log-virtual.conf".format(CSM_PATH,
+                                                                                    LOGROTATE_DIR)
 CLEANUP_LOGROTATE_PATH = "{0}/conf{1}/common/cleanup_log.conf".format(CSM_PATH, LOGROTATE_DIR)
+CLEANUP_LOGROTATE_PATH_VIRTUAL = "{0}/conf{1}/common/cleanup_log-virtual.conf".format(CSM_PATH,
+                                                                                      LOGROTATE_DIR)
 LOGROTATE_PATH = "{}/".format(LOGROTATE_DIR)
+SOURCE_LOGROTATE_DEST = "{0}/csm_agent_log.conf".format(LOGROTATE_DIR)
+CLEANUP_LOGROTATE_DEST = "{0}/cleanup_log.conf".format(LOGROTATE_DIR)
 
 # Service instance literal constant
 FW_UPDATE_SERVICE = "fw_update_service"
@@ -589,3 +596,5 @@ STORAGE_TYPE = "storage_type"
 FEATURE_ENDPOINT_MAP_INDEX = "FEATURE_COMPONENTS.feature_endpoint_map"
 OK = 'ok'
 EMPTY_PASS_FIELD = "Password field can't be empty."
+
+STORAGE_TYPE_VIRTUAL = "virtual"
