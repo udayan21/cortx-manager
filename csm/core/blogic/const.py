@@ -351,7 +351,8 @@ CSM_USER_DEFAULT_TEMPERATURE = 'celcius'
 CSM_USER_CURRENT_PASSWORD = 'current_password'
 CSM_USER_NAME = 'username'
 # CONSTANT
-UNIT_LIST = ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+CAPACITY_UNIT_LIST = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+DEFAULT_CAPACITY_DECIMAL_DIGITS = 2
 STRING_MAX_VALUE = 250
 PATH_PREFIX_MAX_VALUE = 512
 PORT_MIN_VALUE = 0
@@ -469,6 +470,7 @@ SIZE = 'size'
 USED = 'used'
 AVAILABLE = 'avail'
 USAGE_PERCENTAGE = 'usage_percentage'
+UNIT = 'unit'
 
 # Keys for  Description
 DECRYPTION_KEYS = {
