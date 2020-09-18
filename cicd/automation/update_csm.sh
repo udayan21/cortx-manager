@@ -30,10 +30,8 @@ fi
 update_salt_pillar()
 {
 # Update release.sls
-    echo -e "\n\t***** INFO: Updating release.sls *****" 2>&1 | tee -a $LOG_FILE
-    sed -i "s~target_build: .*~target_build: ${tgt_build}~" /opt/seagate/cortx/provisioner/pillar/components/release.sls;
-    salt "*" saltutil.sync_all
-    salt "*" saltutil.refresh_pillar
+echo -e "\n\t***** INFO: Updating release.sls *****" 2>&1 | tee -a $LOG_FILE
+provisioner pillar_set release/target_build \"${tgt_build}\"
 
 }
 
@@ -59,23 +57,23 @@ usage()
 {
     echo "\
 This script will remove existing csm rpms and 
-install csm rpms from  target build Also 
+install csm rpms from  target build also 
 do cleanup of consul data and elasticsearch data
 
 Usage:
-sh install_csm.sh -t <target build url for EOS>
+sh update_csm.sh -t <target build url for CORTX>
 
 For Single Node:
-sh update_csm.sh -S -t <target build url for EOS>
+sh update_csm.sh -S -t <target build url for CORTX>
 
 For Dual Node:
-sh update_csm.sh -t <target build url for EOS>
+sh update_csm.sh -t <target build url for CORTX>
 
 For Dual Node HW: 
-sh update_csm.sh -H -t <target build url for EOS>
+sh update_csm.sh -H -t <target build url for CORTX>
 
 Optional Arguments:
--rm             Remove conule data and  elasticsearch data
+-rm             Remove consul and elasticsearch data
 "
 }
 while [[ $# -gt 0 ]]; do
@@ -144,6 +142,3 @@ if [[ "$hardware" == true ]]; then
    echo "enable pcs resource csm-web"
    run_command "pcs resource enable csm-web"
 fi
-
-
-
