@@ -1,0 +1,10 @@
+REST_SERVER:
+  hostname: ssc-vm-1133.colo.seagate.com
+  port: 28200
+  debug_mode: False
+
+#Logging
+Log:
+    log_level: 'DEBUG'
+    log_path: '/opt/seagate/cortx'
+
